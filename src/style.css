@@ -1,0 +1,164 @@
+:root{
+    --main-bg-color: beige;
+    --second-bg-color: rgb(8, 6, 6);
+    --main-light-color: rgb(214, 211, 211);
+       
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body{
+    height: 100vh;
+}
+
+
+
+#root {
+    background-color: var(--main-bg-color);
+    border-radius: 30px;
+    max-width: 520px;
+    margin: 0 auto;
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: 15vh 1fr 8vh
+
+}
+
+header {
+    color: var(--second-bg-color);
+    min-height: 50px;
+    position:sticky;
+    top: 0;
+    background-color: var(--main-bg-color);
+}
+
+.header-link {
+    margin-right: 30px;
+    text-decoration: none;
+}
+
+
+.header-title {
+    margin-left: 30px;
+    text-decoration: none;
+    color: black;
+    font-size: 1.3rem;
+}
+
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+
+.home-container{
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items: center;
+    background:  url('../public/images/home-hero.png')  ,rgba(12, 1, 1, 0.685) ;
+    background-size: cover;
+    background-blend-mode: overlay;
+    color: var(--main-light-color);
+    column-gap: 20px;
+}
+
+.home-title{
+    font-size: 2rem;
+    padding: 80px 30px 10px 0;
+    width: 90%;
+}
+.home-text{
+    font-size: 1.2rem;
+    padding: 30px 30px 15px 0;
+    width: 90%;
+}
+
+.home-btn{
+    background-color: rgb(247, 83, 7);
+    width: 90%;
+    height: 40px;
+    border-radius: 5px;
+    color: var(--main-light-color);
+    margin-top: 30px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.about-destination-container{
+    background-color: rgb(216, 156, 43);
+    width: 90%;
+    height: 130px;
+    margin-top: 20px;
+}
+
+
+.about-container{
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.about-title{
+    font-size: 2rem;
+    padding: 40px 30px 0 0;
+    width: 90%;
+}
+
+.about-text{
+    font-size: 1.2rem;
+    padding: 30px 30px 0px 0;
+    width: 90%;
+}
+
+
+
+.about-destination-title-line1{
+    padding: 10px 0px 5px 15px;
+}
+
+.about-destination-title-line2{
+    padding: 0 0px 0 15px;
+}
+
+.about-destination-btn {
+    background-color: var(--second-bg-color);
+    color: rgb(214, 212, 211);
+    height: 30px;
+    width: 150px;
+    border-radius: 5px;
+    margin: 15px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-hero-img{
+    width: 90%;
+}
+
+footer{
+    width: 100%;
+    background-color:var(--second-bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--main-light-color);
+    font-size: 15px;
+    min-height: 40px;
+    max-width: 520px;
+}
