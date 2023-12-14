@@ -18,6 +18,7 @@ export default function About(){
                 <h3 className="about-destination-title-line1">Your destinantion is waiting.</h3>
                 <h3 className="about-destination-title-line2">Your van is ready.</h3>
                 <Link className="about-destination-btn" to='/vans'>Explore our vans</Link>
+                
             </div>
     </main>
         

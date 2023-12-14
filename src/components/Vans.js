@@ -1,24 +1,39 @@
+
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import Type from "./Type"
 
 
+export default function Vans() {
 
-export default function Vans(props) {
-    let list
-if(props.vans.vans) {
-     list = props.vans.vans.map(e => 
-        <div className="van-container">
-        <Link>
+const [vans, setVans] = useState([])
+
+useEffect(() => {
+  fetch('/api/vans')
+    .then(res => res.json())
+      .then(data => setVans(data.vans))
+}, [])
+    
+    let vanElements
+if(vans) {
+    vanElements = vans.map(e => 
+        
+        <Link key={e.id} className="van-container" to={`/vans/${e.id}`}>
+        
             <img className="van-image" src={e.imageUrl} alt={e.name}/>
-        </Link>
+       
             
-            <p className="van-name-price">
-                <span className='van-name'>{e.name}</span>
-                <span className="van-price">${e.price}</span>
-            </p>
-            <p className={`van-type ${e.type}`}>
+            <div className="van-name-price">
+                <h3 className='van-name'>{e.name}</h3>
+                <p className="van-price">${e.price}<small>/day</small></p>
+            </div>
+
+            <Type type={e.type}/>
+            {/* <p className={`van-type ${e.type}`}>
                 {e.type}
-            </p>
-        </div>
+            </p> */}
+        </Link>
+        
     )
 }
 
@@ -45,7 +60,7 @@ if(props.vans.vans) {
            
           
             <article className="vans-container">
-            {list}
+            {vanElements}
             </article>
           
         </main>
