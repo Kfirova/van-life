@@ -25,7 +25,7 @@ const result = van ?  (
                 </Link>
                 <img className="vanDetail-image" src= {van.vans.imageUrl} alt={van.vans.name}/>
                 <Type type={van.vans.type}/>
-                <h2 className="vanDetail-title">{van.vans.name}</h2>
+                <h3 className="vanDetail-title">{van.vans.name}</h3>
                 <h4>{`$${van.vans.price}`}/<small>day</small></h4>
                 <p className="vanDetail-description">{van.vans.description}</p>
                 <Link className="vanDetail-btn">Rent this van</Link>
