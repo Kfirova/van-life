@@ -29,9 +29,7 @@ if(vans) {
             </div>
 
             <Type type={e.type}/>
-            {/* <p className={`van-type ${e.type}`}>
-                {e.type}
-            </p> */}
+           
         </Link>
         
     )
