@@ -2,9 +2,9 @@
     --main-bg-color: beige;
     --second-bg-color: rgb(8, 6, 6);
     --main-light-color: rgb(214, 211, 211);
-     --type-simple-bg-color:rgb(255, 123, 0);
+     --type-simple-bg-color:rgb(240, 56, 10);
      --type-luxury-bg-color: black;
-     --type-rugged-bg-color:  rgb(0, 36, 0);
+     --type-rugged-bg-color:  rgb(22, 68, 22);
      --type-width: 60px;
      --type-height: 30px;  
      --type-color: white;
@@ -285,6 +285,12 @@ margin-bottom: 15px;
 
 @media screen and (max-width: 380px) {
 
+    .vans-type-link-container{
+        display: flex;
+        /* justify-content: center; */
+        margin-bottom: 20px;
+    }
+
     .vans-type-link{
         display: flex;
         width: 70px;
@@ -293,7 +299,8 @@ margin-bottom: 15px;
         background-color: rgb(228, 228, 207);
         justify-content: center;
         align-items: center;
-        font-size: 0.85rem;
+        font-size: 0.8rem;
+        /* margin-right: 8px; */
     }
 
 
