@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import Type from "./Type"
+import Type from "../../components/Type"
 
 
 export default function Vans() {
@@ -25,7 +25,7 @@ if(vans) {
             
             <div className="van-name-price">
                 <h3 className='van-name'>{e.name}</h3>
-                <p className="van-price">${e.price}<small>/day</small></p>
+                <p className="van-price"><b>${e.price}</b><small>/day</small></p>
             </div>
 
             <Type type={e.type}/>

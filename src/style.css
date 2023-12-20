@@ -27,13 +27,14 @@ body{
     margin: 0 auto;
     min-height: 100%;
     display: grid;
-    grid-template-rows: 12vh 1fr 8vh
+    grid-template-rows: 12vh 1fr 6vh
 
 }
 
 header {
     color: var(--second-bg-color);
     min-height: 50px;
+    max-height: 130px;
     position:sticky;
     top: 0;
     background-color: var(--main-bg-color);
@@ -42,8 +43,14 @@ header {
 .header-link {
     margin-right: 30px;
     text-decoration: none;
+    font-size: 1.15rem;
 }
 
+.header-link.selected, .header-title.selected, .header-link:hover, .header-title:hover {
+    font-weight: 800;
+    text-decoration:underline;
+    color: #161616;
+}
 
 .header-title {
     margin-left: 30px;
@@ -53,7 +60,7 @@ header {
 }
 
 
-nav{
+.header-nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -164,6 +171,7 @@ footer{
     color: var(--main-light-color);
     font-size: 15px;
     min-height: 40px;
+    max-height: 60px;
     max-width: 520px;
 }
 
@@ -282,6 +290,203 @@ margin-bottom: 15px;
 .vanDetail-btn {
     width: 100%;
 }
+
+.vanDetail-loading{
+    margin-top: 30px;
+}
+
+.host-link-container{
+    display: flex;
+    justify-content: start;
+    margin-bottom: 20px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.host-link{
+    display: flex;
+    /* width: 90px;
+    height: 20px; */
+    text-decoration: none;
+    /* background-color: rgb(228, 228, 207); */
+    justify-content: center;
+    align-items: center;
+    margin-right: 30px;
+   
+    
+}
+
+ .host-link:hover{
+    font-weight: 800;
+    text-decoration:underline;
+    color: #161616;
+}
+
+.hostvans-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hostvans-loading{
+    width: 90%;
+}
+
+.hostvans-title{
+    margin: 40px auto;
+    margin-bottom: 30px;
+    width: 90%;
+ 
+}
+
+.hostvans-list-item-box{
+    height: 150px;
+    background-color: white;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+}
+
+.hostvans-list-box{
+    width: 90%;
+}
+
+
+
+.hostvans-list-item-image{
+    height: 80%;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.hostVanDetails-main{
+    margin-top: 50px;
+}
+
+.hostVanDetails-flex-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: white;
+    width: 90%;
+    margin-top: 30px; */
+}
+
+.hostVanDetails-loading{
+    
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 30px;
+   
+}
+
+
+.hostVanDetails-without-backNav{
+    background-color: white;
+    width: 90%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px auto;
+    padding-bottom: 20px;
+    
+}
+
+
+.hostVanDetails-summary-box{
+    height: 220px;
+    display: flex;
+    align-items: center;
+}
+
+.hostVanDetails-summary-image{
+    width: 40%;
+    margin-right: 30px;
+    margin-left: 25px;
+}
+
+.hostVanDetails-summary-name{
+    margin-top: 12px;
+    margin-bottom: 3px;
+}
+
+.hostVanDetails-details-container{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.hostVanDetails-details-category{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.hostVanDetails-details-visibility{
+    margin-top: 15px;
+}
+
+.hostVanDetails-link{
+    margin-left: 25px;
+    text-decoration: none;
+    
+}
+
+.hostVanDetails-link span:hover{
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+
+
+.HostVanDetailsLayout-link-container{
+    display: flex;
+    justify-content: start;
+   
+    margin: 0 auto;
+    width: 90%;
+
+}
+
+.HostVanDetailsLayout-link{
+    text-decoration: none;
+    /* margin-top: 20px; */
+    margin-right: 20px;
+    
+}
+
+
+.HostVanDetailsLayout-link.selected, .HostVanDetailsLayout-link:hover{
+    font-weight: 800;
+    text-decoration:underline;
+    color: #161616;
+}
+
+
+
+
+.host-vans-price-container{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 30px;
+    
+}
+
+.host-vans-photos-container{
+    height: 120px;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.host-vans-photos-container-image{
+    height: 90%;
+}
+
+
+
 
 @media screen and (max-width: 380px) {
 
