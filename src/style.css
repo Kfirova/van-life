@@ -297,7 +297,7 @@ margin-bottom: 15px;
 
 .host-link-container{
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     margin-bottom: 20px;
     width: 90%;
     margin: 0 auto;
@@ -443,7 +443,7 @@ margin-bottom: 15px;
 
 .HostVanDetailsLayout-link-container{
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
    
     margin: 0 auto;
     width: 90%;
