@@ -21,7 +21,7 @@ export default function HostVanDetails() {
         <div className="hostVanDetails-main">
            
             <Link 
-                className="hostVanDetails-link" 
+                className="back-button"
                 to='..'
                 relative="path"
                 >

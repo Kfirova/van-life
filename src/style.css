@@ -13,6 +13,8 @@
 *{
     box-sizing: border-box;
     margin: 0;
+    font-family: 'Inter', sans-serif;
+    /* font-family: 'Roboto Condensed', sans-serif; */
 }
 
 body{
@@ -179,9 +181,14 @@ footer{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-around;
     
 
+}
+
+.vans.main-container {
+    width: 90%;
+    margin: 0 auto;
 }
 
 .vans-title{
@@ -189,8 +196,13 @@ text-align: center;
 margin-bottom: 15px;
 }
 
+.vans-loading-error{
+    width: 100%;
+    margin-top: 20px;
+}
+
 .van-container{
-    width: 40%;
+    width: 45%;
     margin-bottom: 20px;
     text-decoration: none;
 }
@@ -240,19 +252,41 @@ margin-bottom: 15px;
 }
 
 .vans-type-link-container{
+    width: 90%;
     display: flex;
     justify-content: space-evenly;
+    margin: 0 auto;
     margin-bottom: 20px;
 }
 
 .vans-type-link{
-    display: flex;
-    width: 90px;
-    height: 20px;
-    text-decoration: none;
+    width: 80px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
     background-color: rgb(228, 228, 207);
-    justify-content: center;
-    align-items: center;
+    font-size: 0.7rem;
+   
+}
+
+.vans-type-link.simple.selected, .vans-type-link.simple:hover{
+    background-color: var(--type-simple-bg-color);
+    color: white;
+}
+
+.vans-type-link.luxury.selected, .vans-type-link.luxury:hover{
+    background-color: var(--type-luxury-bg-color);
+    color: white;
+}
+
+.vans-type-link.rugged.selected, .vans-type-link.rugged:hover{
+    background-color: var(--type-rugged-bg-color);
+    color: white;
+}
+
+.vans-type-link.clear:hover{
+    /* font-weight: 800; */
+    text-decoration:underline;
 }
 
 .vanDetail-container{
@@ -362,6 +396,8 @@ margin-bottom: 15px;
 
 .hostVanDetails-main{
     margin-top: 50px;
+    width: 90%;
+    margin: 0 auto;
 }
 
 .hostVanDetails-flex-container{
@@ -405,7 +441,7 @@ margin-bottom: 15px;
 .hostVanDetails-summary-image{
     width: 40%;
     margin-right: 30px;
-    margin-left: 25px;
+    /* margin-left: 25px; */
 }
 
 .hostVanDetails-summary-name{
@@ -414,8 +450,8 @@ margin-bottom: 15px;
 }
 
 .hostVanDetails-details-container{
-    width: 90%;
-    margin: 0 auto;
+    /* width: 90%; */
+    /* margin: 0 auto; */
     margin-top: 30px;
 }
 
@@ -426,15 +462,15 @@ margin-bottom: 15px;
 
 .hostVanDetails-details-visibility{
     margin-top: 15px;
+    margin-bottom: 30px;
 }
-
-.hostVanDetails-link{
-    margin-left: 25px;
+.back-button{
+    /* margin-left: 25px; */
     text-decoration: none;
     
 }
 
-.hostVanDetails-link span:hover{
+.back-button span:hover{
     text-decoration: underline;
     font-weight: bold;
 }
@@ -444,9 +480,8 @@ margin-bottom: 15px;
 .HostVanDetailsLayout-link-container{
     display: flex;
     justify-content: flex-start;
-   
-    margin: 0 auto;
-    width: 90%;
+    /* margin: 0 auto; */
+    /* width: 90%; */
 
 }
 
@@ -468,24 +503,54 @@ margin-bottom: 15px;
 
 
 .host-vans-price-container{
-    width: 90%;
-    margin: 0 auto;
+    /* width: 90%; */
+    /* margin: 0 auto; */
     margin-top: 30px;
     
 }
 
+.host-vans-price{
+    margin-bottom: 30px;
+}
+
 .host-vans-photos-container{
     height: 120px;
-    width: 90%;
-    margin: 0 auto;
+    /* width: 90%;
+    margin: 0 auto; */
     margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .host-vans-photos-container-image{
     height: 90%;
 }
 
+.not-found.container{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 80px;
+}
 
+.not-found.link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    width: 100%;
+    height: 40px;
+    /* margin: 0 auto; */
+    margin-top: 40px;
+    color: white;
+    background-color: var(--second-bg-color);
+    border-radius: 5px;
+    
+}
+
+.error.main {
+    width: 90%;
+    margin: 0 auto;
+}
 
 
 @media screen and (max-width: 380px) {

@@ -22,7 +22,7 @@ export default function Vans() {
         <Link 
             className="hostvans-list-item-box" 
             key={element.id} 
-            to={`/host/vans/${element.id}`}
+            to={element.id}
         >
         <img className="hostvans-list-item-image" src={element.imageUrl} alt={element.name}/>
         <div className="hostvans-list-item-name-price">
