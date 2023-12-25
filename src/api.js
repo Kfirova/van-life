@@ -1,4 +1,4 @@
-import { wait } from "@testing-library/user-event/dist/utils";
+
 
 export async function getVans() {
     const res = await fetch('/api/vans');

@@ -1,9 +1,9 @@
 
 
-import { Await, Link, useLoaderData, useSearchParams } from "react-router-dom"
+import { Link, useLoaderData, useSearchParams } from "react-router-dom"
 import Type from "../../components/Type"
 import { getVans } from "../../api"
-import { Suspense } from "react"
+
 
 
 
