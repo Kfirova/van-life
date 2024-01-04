@@ -83,6 +83,12 @@ header {
    
 }
 
+.header.logout-btn{
+    padding: 0;
+    border: none;
+    font-size: 1.15rem;
+}
+
 
 .home-container{
     height: 100%;
@@ -345,6 +351,11 @@ margin-bottom: 30px;
     width: 90%;
     margin: 0 auto;
     margin-top: 30px;
+}
+
+.host-container{
+    width: 90%;
+    margin: 0 auto;
 }
 
 .host-link-container{
@@ -776,8 +787,15 @@ margin-bottom: 30px;
     margin-top: 30px;
 }
 
-.reviews.user.text span{
+.reviews.user.text.name{
     text-decoration: none;
+}
+
+.reviews.user.text.date{
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-style: italic;
 }
 
 .reviews.user.stars{
@@ -789,7 +807,21 @@ margin-bottom: 30px;
     font-size: 1.4rem;
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 430px) {
+
+    .header-title {
+        font-size: 0.9rem;
+    }
+
+    .header-link{
+        font-size: 0.9rem;
+        margin-right: 10px;
+    }
+
+    .header.logout-btn{
+        font-size: 0.9rem;
+       
+    }
 
     .vans-type-link-container{
         display: flex;

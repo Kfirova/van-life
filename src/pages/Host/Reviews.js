@@ -70,9 +70,13 @@ function renderElement(user) {
             <h2 className="reviews user title">Reviews ({user.reviewsData.length})</h2>
             {user.reviewsData.map(e => {
                 return (
+                    
                     <div key={e.id} className="reviews user">
                     <p>{stars(e.rating)}</p>
-                    <p className="reviews user text"><span>{e.name}</span> {e.date}</p>
+                    <p className="reviews user text"><span className="reviews user text name">{e.name}</span> &nbsp;<span className="reviews user text date">{e.date}</span></p>
+                    <p>{e.text}</p>
+                    <br />
+                    <hr />
                     </div>
                 )
             }

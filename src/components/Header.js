@@ -40,7 +40,7 @@ function logOut(){
                                 alt="avatar-icon"/>
                     </NavLink>
                     
-                    <button onClick={logOut}>Log Out</button>
+                    <button className="header logout-btn" onClick={logOut}>Log Out</button>
                                       
                 </div>
             </nav>

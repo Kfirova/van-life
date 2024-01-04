@@ -27,7 +27,16 @@ createServer({
             date: "December 12, 2022",
             text: "This is our third time using the Modest Explorer for our travels and we love it! No complaints, absolutely perfect!",
             id: "2",
-        }]})
+        },
+        {
+            rating: 2,
+            name: "Riri",
+            date: "December 02, 2022",
+            text: "Bad customer service.",
+            id: "3",
+        }
+    
+    ]})
     },
 
     routes() {
