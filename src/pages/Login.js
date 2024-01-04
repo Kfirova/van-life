@@ -1,4 +1,4 @@
-import {Form, redirect, useActionData, useLoaderData, useNavigation, useSearchParams} from "react-router-dom";
+import {Form, redirect, useActionData, useLoaderData, useNavigation} from "react-router-dom";
 import { loginUser } from "../api";
 
 export async function loader({request}){

@@ -3,7 +3,7 @@ import { requireAuth } from "../../utils"
 import { getUser } from "../../api"
 import { Suspense} from "react"
 import { Bar } from "react-chartjs-2";
-import {Chart as CharsJS} from "chart.js/auto"
+import "chart.js/auto"
 
 
 export async function loader({request}) {

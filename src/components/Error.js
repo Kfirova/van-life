@@ -1,4 +1,4 @@
-import { useAsyncError, useRouteError } from "react-router-dom"
+import { useAsyncError } from "react-router-dom"
 
 export default function Error(){
     const error = useAsyncError()
