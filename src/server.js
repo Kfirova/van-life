@@ -14,7 +14,20 @@ createServer({
         server.create("van", { id: "4", name: "Dreamfinder", price: 65, description: "Dreamfinder is the perfect van to travel in and experience. With a ceiling height of 2.1m, you can stand up in this van and there is great head room. The floor is a beautiful glass-reinforced plastic (GRP) which is easy to clean and very hard wearing. A large rear window and large side windows make it really light inside and keep it well ventilated.", imageUrl: "https://assets.scrimba.com/advanced-react/react-router/dreamfinder.png", type: "simple", hostId: "789" })
         server.create("van", { id: "5", name: "The Cruiser", price: 120, description: "The Cruiser is a van for those who love to travel in comfort and luxury. With its many windows, spacious interior and ample storage space, the Cruiser offers a beautiful view wherever you go.", imageUrl: "https://assets.scrimba.com/advanced-react/react-router/the-cruiser.png", type: "luxury", hostId: "789" })
         server.create("van", { id: "6", name: "Green Wonder", price: 70, description: "With this van, you can take your travel life to the next level. The Green Wonder is a sustainable vehicle that's perfect for people who are looking for a stylish, eco-friendly mode of transport that can go anywhere.", imageUrl: "https://assets.scrimba.com/advanced-react/react-router/green-wonder.png", type: "rugged", hostId: "123" })
-        server.create("user", { id: "123", email: "b@b.com", password: "p123", name: "Bob" })
+        server.create("user", { id: "123", email: "b@b.com", password: "p123", name: "Bob", income: {Aug: 4000, Sep: 1500, Oct: 3000, Nov: 2500, Dec: 1500, Jan: 500}, lastdays: '2,260',  transactionsData: [{ amount: 720, date: "Jan 3, '23", id: "1" },{ amount: 560, date: "Dec 12, '22", id: "2" },{ amount: 980, date: "Dec 3, '22", id: "3" } ], review:{score: '5.0', number:5}, reviewsData: [  {
+            rating: 5,
+            name: "Elliot",
+            date: "January 3, 2023",
+            text: "The beach bum is such an awesome van! Such a comfortable trip. We had it for 2 weeks and there was not a single issue. Super clean when we picked it up and the host is very comfortable and understanding. Highly recommend!",
+            id: "1",
+        },
+        {
+            rating: 5,
+            name: "Sandy",
+            date: "December 12, 2022",
+            text: "This is our third time using the Modest Explorer for our travels and we love it! No complaints, absolutely perfect!",
+            id: "2",
+        }]})
     },
 
     routes() {
@@ -29,19 +42,34 @@ createServer({
         })
 
         this.get("/vans/:id", (schema, request) => {
+            // return new Response(400, {}, {error: "Error fetching data"})
             const id = request.params.id
             return schema.vans.find(id)
         })
 
         this.get("/host/vans", (schema, request) => {
             // Hard-code the hostId for now
+            // return new Response(400, {}, {error: "Error fetching data"})
             return schema.vans.where({ hostId: "123" })
         })
 
         this.get("/host/vans/:id", (schema, request) => {
             // Hard-code the hostId for now
+            // return new Response(400, {}, {error: "Error fetching data"})
             const id = request.params.id
             return schema.vans.findBy({ id, hostId: "123" })
+        })
+
+        this.get("/host/lastdays", (schema, request) => {
+            // Hard-code the hostId for now
+            // return new Response(400, {}, {error: "Error fetching data"})
+            return schema.users.findBy({id: '123'})
+        })
+
+        this.get("/host/income", (schema, request) => {
+            // Hard-code the hostId for now
+            // return new Response(400, {}, {error: "Error fetching data"})
+            return schema.vans.where({ hostId: "123" })
         })
 
         this.post("/login", (schema, request) => {

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 
 export default function About(){
     return(
-        <main className="about-container">
+        <div className="about-container">
             <img src="./images/about-hero.png" alt="about hero" className="about-hero-img"/>
             <h1 className="about-title">Don't squeeze in sedan when you could relax in a van</h1>
             <p className="about-text">
@@ -20,7 +20,7 @@ export default function About(){
                 <Link className="about-destination-btn" to='/vans'>Explore our vans</Link>
                 
             </div>
-    </main>
+    </div>
         
     )
 }

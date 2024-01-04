@@ -8,6 +8,7 @@
      --type-width: 60px;
      --type-height: 30px;  
      --type-color: white;
+     --orange-color: rgb(247, 83, 7);
 }
 
 *{
@@ -19,11 +20,12 @@
 
 body{
     height: 100vh;
+    background-color: var(--main-bg-color);
 }
 
 
 #root {
-    background-color: var(--main-bg-color);
+    /* background-color: var(--main-bg-color); */
     border-radius: 30px;
     max-width: 480px;
     margin: 0 auto;
@@ -40,12 +42,22 @@ header {
     position:sticky;
     top: 0;
     background-color: var(--main-bg-color);
+    width: 90%;
+    margin: 0 auto;
 }
 
 .header-link {
-    margin-right: 30px;
+    margin-right: 20px;
     text-decoration: none;
     font-size: 1.15rem;
+}
+
+
+
+.header-link-login-avatar{
+    height: 1.15rem;
+    position: relative;
+    top: 3px;
 }
 
 .header-link.selected, .header-title.selected, .header-link:hover, .header-title:hover {
@@ -55,7 +67,7 @@ header {
 }
 
 .header-title {
-    margin-left: 30px;
+    /* margin-left: 30px; */
     text-decoration: none;
     color: black;
     font-size: 1.3rem;
@@ -68,10 +80,12 @@ header {
     align-items: center;
     width: 100%;
     height: 100%;
+   
 }
 
 
 .home-container{
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content:flex-start;
@@ -95,7 +109,7 @@ header {
 }
 
 .home-btn, .vanDetail-btn {
-    background-color: rgb(247, 83, 7);
+    background-color: var(--orange-color);
     width: 90%;
     height: 40px;
     border-radius: 5px;
@@ -193,12 +207,14 @@ footer{
 
 .vans-title{
 text-align: center;
-margin-bottom: 15px;
+margin-bottom: 30px;
+/* width: 90%; */
+/* margin: 0 auto; */
 }
 
-.vans-loading-error{
+.vans.loading{
     width: 100%;
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
 .van-container{
@@ -325,16 +341,19 @@ margin-bottom: 15px;
     width: 100%;
 }
 
-.vanDetail-loading{
+.vanDetail.loading{
+    width: 90%;
+    margin: 0 auto;
     margin-top: 30px;
 }
 
 .host-link-container{
     display: flex;
     justify-content: flex-start;
-    margin-bottom: 20px;
+    
     width: 90%;
     margin: 0 auto;
+    margin-bottom: 40px;
 }
 
 .host-link{
@@ -357,17 +376,19 @@ margin-bottom: 15px;
 }
 
 .hostvans-container{
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.hostvans-loading{
+.hostvans.loading{
+    margin-top: 10px;
     width: 90%;
 }
 
 .hostvans-title{
-    margin: 40px auto;
+    margin: 0px auto;
     margin-bottom: 30px;
     width: 90%;
  
@@ -393,6 +414,8 @@ margin-bottom: 15px;
     margin-left: 30px;
     margin-right: 30px;
 }
+
+
 
 .hostVanDetails-main{
     margin-top: 50px;
@@ -547,11 +570,224 @@ margin-bottom: 15px;
     
 }
 
-.error.main {
+/* .error.main {
+    width: 90%;
+    margin: 0 auto;
+} */
+
+.error.message{
+    margin-bottom: 20px;
+}
+
+.login.container {
     width: 90%;
     margin: 0 auto;
 }
 
+.login.title{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.login.input {
+    width: 100%;
+    margin-bottom: 15px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid var(--type-luxury-bg-color);
+}
+
+.login.btn {
+  
+    background-color: var(--orange-color);
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    color: var(--main-light-color);
+    margin-top: 30px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.login.btn:disabled {
+   opacity: 0.4;
+}
+
+.login.message {
+    color: red;
+    /* margin-top: 15px; */
+    margin-bottom: 15px;
+}
+
+.dashbord.lastdays.container{
+    padding-left: 30px;
+    padding-right: 30px;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+    background-color: bisque;
+}
+.dashbord.ladtdays.data{
+    font-size: 2rem;
+    font-weight: 900;
+    margin-top: 20px;
+}
+
+.dashbord.lastdays.description{
+  margin-top: 20px;
+   
+}
+
+.dashbord.lastdays.description.span{
+    text-decoration: underline;
+    font-weight: bold;
+   
+}
+
+.dashbord.review.container{
+    padding-left: 30px;
+    padding-right: 30px;
+    height: 160px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color:rgb(243, 179, 101);
+}
+
+.dashbord.review.text.star{
+    color: orange;
+    font-size: 1.4rem;
+}
+
+.dashbord.review.description{
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-right: 30px;
+}
+
+.dashbord.review.score{
+    font-weight: 800;
+}
+
+.dashbord.vanlist.container{
+    padding-left: 30px;
+    padding-right: 30px;
+    height: 160px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: aquamarine;
+}
+
+.dashbord.vanlist.text{
+    font-size: 1.3rem;
+    font-weight: 600;
+    /* margin-top: 80px; */
+}
+
+.income.lastdays.text{
+    
+  margin-top: 30px;
+  margin-bottom: 30px;
+  }
+
+.income.lastdays.text span{
+  text-decoration: underline;
+  font-weight: 700;
+
+}
+.income.lastdays.data{
+    font-size: 2rem;
+    font-weight: 800;
+   
+}
+
+.income.chart {
+    margin-top: 40px;
+}
+
+.income.chart.item {
+    width: 100%;
+}
+
+.income.transactions.container {
+    margin-top: 30px;
+}
+
+.income.transactions.text{
+    margin-top: 20px;
+}
+
+.income.transactions.text span{
+    text-decoration: underline;
+    font-weight: 700;
+    
+}
+
+.income.transction.map{
+    margin-top: 30px;
+
+}
+
+.income.transaction.amount{
+    display: inline;
+    /* width: 80px; */
+}
+
+.income.transaction.date{
+    display: inline-block;
+    width: 250px;
+}
+
+.reviews.title.container{
+   margin-bottom: 40px;
+}
+
+
+.reviews.title.item{
+    display: inline;
+    margin-right: 50px;
+}
+
+.reviews.text{
+
+   display: inline;
+}
+
+.reviews.text span{
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+.reviews.user {
+    margin-bottom: 10px;
+}
+
+.reviews.user.title{
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+.reviews.user.text span{
+    text-decoration: none;
+}
+
+.reviews.user.stars{
+    color: orange;
+}
+
+.star{
+    color: orange;
+    font-size: 1.4rem;
+}
 
 @media screen and (max-width: 380px) {
 

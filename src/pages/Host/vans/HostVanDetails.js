@@ -1,26 +1,29 @@
-import { useEffect, useState } from "react"
-import {Link, Outlet, useParams } from "react-router-dom"
+import {Await, Link, Outlet, defer, useLoaderData} from "react-router-dom"
 import Type from "../../../components/Type"
 import HostVanDetailsNavBar from "../../../components/HostVanDetailsNavBar"
+import { getHostVans } from "../../../api"
+import { requireAuth } from "../../../utils"
+import { Suspense } from "react"
+import Error from "../../../components/Error"
 
+
+
+export async function loader({params, request}) {
+    const res = await requireAuth(request)
+    if(res){
+        return res
+    }
+    return defer({van: getHostVans(params.id)}) 
+}
 
 export default function HostVanDetails() {
+  
+    const hostVanPromise = useLoaderData()
 
-    const {id} = useParams()
-    const[hostVan, setHostVan] = useState(null)
-    
-    useEffect(() => {
-        fetch(`/api/host/vans/${id}`) 
-            .then(res => res.json())
-                .then(data => setHostVan(data.vans))
-    },[id])
-
-
-
-    return(
-        <div className="hostVanDetails-main">
-           
-            <Link 
+    function renderHostVanElement(hostVan) {
+        return(
+                <>
+                    <Link 
                 className="back-button"
                 to='..'
                 relative="path"
@@ -29,7 +32,7 @@ export default function HostVanDetails() {
 
             </Link>
           
-            {hostVan ?
+        
             <div className="hostVanDetails-flex-container">
                 <div className="hostVanDetails-container">
                 <div className="hostVanDetails-summary-box">
@@ -42,16 +45,24 @@ export default function HostVanDetails() {
                 </div>
             </div> 
 
-
             </div>
-            :
-            
-            <h3 className="hostVanDetails-loading">Loading...</h3>
-           
-             }
-             
             <HostVanDetailsNavBar/>
             <Outlet context={hostVan}/>
+                </>
+        )
+        
+    }
+  
+    return(
+        <div className="hostVanDetails-main">
+           
+            <Suspense fallback={<h3 className="hostVanDetails loading">Loading Van Details...</h3>}>
+                <Await resolve={hostVanPromise.van} errorElement={<Error />}>
+                    {renderHostVanElement}
+                </Await>
+            </Suspense>
+        
+            
         </div>
        
     )

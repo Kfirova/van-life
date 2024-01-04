@@ -1,19 +1,14 @@
-import { useRouteError } from "react-router-dom"
+import { useAsyncError, useRouteError } from "react-router-dom"
 
 export default function Error(){
-    const error = useRouteError()
-    console.log(error)
+    const error = useAsyncError()
+   console.log(error)
     return (
        
-        <main>
             <div className="error main">
-                <h1>Error: {error.message}</h1>
-                <pre>{error.status} - {error.statusText}</pre>
+                <h1 className="error message">Error: {error.message}</h1>
+                <pre className="error statusText">{error.status} - {error.statusText}</pre>
             </div>
             
-        </main>
-            
-       
-        
         )
 }

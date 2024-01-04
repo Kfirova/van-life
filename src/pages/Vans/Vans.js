@@ -1,35 +1,41 @@
-
-
-import { Link, useLoaderData, useSearchParams } from "react-router-dom"
+import { Await, Link, defer, useLoaderData, useSearchParams } from "react-router-dom"
 import Type from "../../components/Type"
 import { getVans } from "../../api"
+import { Suspense } from "react"
+import Error from "../../components/Error"
 
 
-
-
-export async function loader() {
-   return getVans()
+export function loader() {
+   return defer({vans: getVans()}) 
 
 }
 
 export default function Vans() {
-    
-
 const [searchParams, setSearchParams] = useSearchParams()
-
-const vans = useLoaderData()
-console.log(vans)
+const vansPromise = useLoaderData()
 
 
 const typeFilter = searchParams.get('type')
 
+function handleFilterChange(key, value) {
+    setSearchParams(prevParam => {
+        if(value === null){
+            prevParam.delete(key)
+        } else {
+            prevParam.set(key, value)
+        }
+        console.log('handlefilter function')
+        return prevParam
+    })
+}
 
-     const vanFilter = typeFilter ?
-     vans.filter(van => van.type.toLowerCase() === typeFilter)
-     :
-     vans
+function renderVanElements(vans) {
     
-  
+    console.log(vans)
+    const vanFilter = typeFilter ?
+    vans.filter(van => van.type.toLowerCase() === typeFilter)
+    :
+    vans
     
     const vanElements = vanFilter.map(e => 
         
@@ -51,76 +57,64 @@ const typeFilter = searchParams.get('type')
     
                 <Type type={e.type}/>
                
-            </Link>
+        </Link>
             
         )
-    
-   
-     
+            return (
+                <>
+                    <div className="vans-type-link-container">
+                        <button
+                            className={`vans-type-link simple ${(typeFilter === 'simple') && 'selected'}`}
+                            onClick={() =>handleFilterChange('type', 'simple')}
+                        >
+                        Simple
+                        </button>
 
-// console.log(vans)
-function handleFilterChange(key, value) {
-    setSearchParams(prevParam => {
-        if(value === null){
-            prevParam.delete(key)
-        } else {
-            prevParam.set(key, value)
-        }
-        console.log('handlefilter function')
-        return prevParam
-    })
+                        <button 
+                            className={`vans-type-link luxury ${(typeFilter === 'luxury') && 'selected'}`}
+                            onClick={() =>handleFilterChange('type', 'luxury') }
+                        >
+                            Luxury
+                        </button>
+
+                        <button 
+                            className= {`vans-type-link rugged ${(typeFilter === 'rugged') && 'selected'}`}
+                            onClick={() =>handleFilterChange('type', 'rugged')}
+                        >
+                            Rugged
+                        </button>
+
+                        {typeFilter &&
+                        <button
+                            className="vans-type-link clear" 
+                            onClick={() =>handleFilterChange('type', null) }
+                        >
+                            Clear Filters
+                        </button>
+                }
+            
+                 </div>
+                     <article className="vans-container">
+                        {vanElements}
+                    </article>
+                </>
+                )       
+         
 }
    
     return(
-        <main >
+        <div>
         <div className="vans main-container">
         <h2 className="vans-title">Explore our van options</h2>
-            <div className="vans-type-link-container">
-                <button
-                    className={`vans-type-link simple ${(typeFilter === 'simple') && 'selected'}`}
-                    onClick={() =>handleFilterChange('type', 'simple')}
-                    >
-                    Simple
-                </button>
-
-                <button 
-                className={`vans-type-link luxury ${(typeFilter === 'luxury') && 'selected'}`}
-                onClick={() =>handleFilterChange('type', 'luxury') }
-                >
-                    Luxury
-                </button>
-
-                <button 
-                className= {`vans-type-link rugged ${(typeFilter === 'rugged') && 'selected'}`}
-                onClick={() =>handleFilterChange('type', 'rugged')}
-                >
-                    Rugged
-                </button>
-
-                {typeFilter &&
-                    <button
-                    className="vans-type-link clear" 
-                    onClick={() =>handleFilterChange('type', null) }
-                >
-                    Clear Filters
-                </button>
-                }
-               
-            </div>
-           
-          
-            <article className="vans-container">
-           
-           
-               
-                    {vanElements}
-                
-           
-            </article>
+        <Suspense fallback={<h3 className="vans loading">Loading Vans...</h3>}>
+            <Await resolve={vansPromise.vans} errorElement={<Error/>}>
+                {renderVanElements}
+            </Await> 
+            
+        </Suspense>
+       
         </div>
-         
-          
-        </main>
-    )
+        </div>
+    )   
 }
 
