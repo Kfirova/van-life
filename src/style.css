@@ -281,7 +281,7 @@ margin-bottom: 30px;
     margin-bottom: 20px;
 }
 
-.vans-type-link{
+.vans-type-link {
     width: 80px;
     height: 30px;
     border-radius: 5px;
@@ -823,29 +823,11 @@ margin-bottom: 30px;
        
     }
 
-    .vans-type-link-container{
-        display: flex;
-        margin: 0 auto;
-       /* gap: 5px; */
-        margin-bottom: 20px;
-        background-color: bisque;
-        width: inherit;
-        width: 86.67%;
-    }
-
     .vans-type-link{
-        display: inline;
-        width:fit-content;
-        height: fit-content;
-        text-decoration: none;
-        background-color: inherit;
-        font-size: 0.8rem;
-        text-align: center;
-        padding-top: 2px ;
-        padding-bottom: 2px ;
-        
-        
-    }
+        display: inline-block;
+        width:50px;
+       
+        }
 
 
     .van-name-price{
